@@ -6,6 +6,7 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using cmifloppy_linux.ViewModels;
 using cmifloppy_linux.Views;
+using cmifloppy_linux.Services;
 
 namespace cmifloppy_linux;
 

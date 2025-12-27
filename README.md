@@ -1,16 +1,16 @@
 # CMI Floppy Editor
 
-CMI Floppy Editor is an application designed to manage disk images for MAME CMI2X emulation of the Fairlight CMI Series IIx. It functions as a wrapper over functions of cmios9, ImageDisk bin2imd, and MAME floptool utilities.
+CMI Floppy Editor is an application designed to manage disk images for MAME CMI2X emulation of the Fairlight CMI Series IIx. It functions as a wrapper over functions of cmios9, ImageDisk bin2imd and imdu, and MAME floptool utilities.
 
 ## Requirements
 
 - .NET 9 SDK
 - Wine (Linux only)
-- bin2imd.exe, floptool.exe, and cmios9.exe - these need to be placed in the Files directory
+- bin2imd.exe, imdu.exe, floptool.exe, and cmios9.exe - these need to be placed in the Files directory
 
 ### Sourcing requirements
 
-bin2imd.exe - a part of ImageDisk toolkit, recompiled for Win32 - https://github.com/ogdenpm/disktools
+bin2imd.exe, imdu.exe - a part of ImageDisk toolkit, recompiled for Win32 - https://github.com/ogdenpm/disktools
 floptool.exe - a part of MAME, if you didn't build it along with MAME, you can download a binary copy - https://www.mamedev.org/release.html
 cmios9.exe - https://sourceforge.net/projects/cmios9/
 
@@ -37,6 +37,7 @@ Compiled executable and support files can be found in `bin/Release/net9.0/<platf
 - Open or create (with custom name and owner data) .img raw disk images
 - Import, export (as WAV or VC), rename, or delete samples from the raw disk image
 - Convert raw disk images to .IMD, .MFI, .MFM
+- Convert .IMD disk images back to raw format
 
 ## Disclaimer
 

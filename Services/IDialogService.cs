@@ -9,6 +9,7 @@ public interface IDialogService
 {
     Task<(string? diskName, string? diskOwner)> ShowNewImageDialog();
     Task<string?> ShowOpenImageDialog();
+    Task<string?> ShowOpenImdImageDialog();
     Task<(string? path, bool overwrite)> ShowSaveImageDialog();
     Task ShowErrorDialog();
     Task ShowInvalidWavDialog();

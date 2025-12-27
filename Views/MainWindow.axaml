@@ -37,7 +37,7 @@
             </MenuItem>
             <MenuItem Header="_Tools">
                 <MenuItem Header="_BPM to Speed Converter" Name="BpmSpeedMenuItem" />
-                <!--<MenuItem Header="_Convert floppy image to IMG" Name="ConvertToImgMenuItem" />-->
+                <MenuItem Header="_Convert IMD image to IMG" Name="ConvertToImgMenuItem" Command="{Binding ConvertImdToImgCommand}" />
             </MenuItem>
         </Menu>
         <Grid RowDefinitions="auto, *, auto">
