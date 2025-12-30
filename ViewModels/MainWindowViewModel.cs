@@ -432,6 +432,43 @@ public partial class MainWindowViewModel : ViewModelBase
         await ListDirectory();
     }
 
+    public async Task ConvertImdToImgCommand(object? message) {
+        var source = await _dialogService.ShowOpenImdImageDialog();
+        var target = await _dialogService.ShowSaveImageDialog();
+
+        if((source is not null || source != "") && target.path is not null) {
+            try {
+                Process convertProcess;
+                if(OperatingSystem.IsLinux()) {
+                    convertProcess = new Process {
+                        StartInfo = {
+                            FileName = "wine",
+                            Arguments = $"\"./Files/imdu.exe\" /B \"{source}\" \"{target.path}\"",
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            CreateNoWindow = true
+                        }
+                    };
+                } else {
+                    convertProcess = new Process {
+                        StartInfo = {
+                            FileName = $".\\Files\\imdu.exe",
+                            Arguments = $"/B \"{source}\" \"{target.path}\"",
+                            UseShellExecute = false,
+                            RedirectStandardOutput = true,
+                            CreateNoWindow = true
+                        }
+                    };
+                }
+                convertProcess.Start();
+                await convertProcess.WaitForExitAsync();
+            } catch(Exception) {
+                await _dialogService.ShowErrorDialog();
+                Environment.Exit(1);
+            }
+        }
+    }
+
     /// <summary>
     /// Checks if the specified WAV file is mono and 8-bit unsigned.
     /// </summary>
