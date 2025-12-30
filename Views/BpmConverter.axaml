@@ -1,0 +1,21 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="400" Height="100"
+        x:Class="cmifloppy_linux.Views.BpmConverter"
+        Title="BPM to Speed Converter">
+  <Window.Styles>
+    <Style Selector="TextBlock">
+      <Setter Property="Margin" Value="5" />
+    </Style>
+  </Window.Styles>
+  <Grid ColumnDefinitions="*, 5*, *" RowDefinitions="*,*">
+    <TextBlock Text="BPM" Grid.Column="0" Grid.Row="0" VerticalAlignment="Center"/>
+    <Slider Name="BpmSlider" Grid.Column="1" Grid.Row="0" Minimum="60" Maximum="240" Value="120" />
+    <TextBlock Text="120" Grid.Column="2" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" Name="BpmText" />
+    <TextBlock Text="Speed" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center"/>
+    <TextBlock Name="SpeedText" Text="2618" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+  </Grid>
+</Window>

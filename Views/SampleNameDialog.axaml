@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="200"
+        Width="400" Height="80" CanResize="False"
+        x:Class="cmifloppy_linux.Views.SampleNameDialog"
+        Title="Sample Name">
+
+  <Window.Styles>
+    <Style Selector="Grid > Label">
+      <Setter Property="Margin" Value="2" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style Selector="Grid > TextBox">
+      <Setter Property="Margin" Value="2" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <Style Selector="Grid > Button">
+      <Setter Property="Margin" Value="2" />
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+  </Window.Styles>
+
+  <Grid RowDefinitions="*, *" ColumnDefinitions="auto, *">
+    <Label Grid.Row="0" Grid.Column="0" Content="Sample name (without extension):" />
+    <TextBox Name="SampleNameTextBox" Grid.Row="0" Grid.Column="1" MaxLength="8" />
+    <Button Content="Cancel" Grid.Row="1" Grid.Column="0" Click="CancelClick" />
+    <Button Content="Create" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Click="CreateClick" IsDefault="True" />
+  </Grid>
+</Window>

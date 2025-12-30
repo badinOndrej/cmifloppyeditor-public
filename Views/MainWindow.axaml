@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:cmifloppy_linux.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="450"
+        Width="550" Height="450"
+        x:Class="cmifloppy_linux.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/Floppy8Inch.ico"
+        Title="CMI2X FLOPPY EDITOR">
+
+    <Window.Styles>
+        <Style Selector="Grid > StackPanel">
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style Selector="Grid > Border">
+            <Setter Property="Margin" Value="2" />
+        </Style>
+        <Style Selector="Grid > Button">
+            <Setter Property="Margin" Value="2" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Styles>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="Create _new image" Command="{Binding CreateImageCommand}" />
+                <MenuItem Header="_Open image" Command="{Binding OpenImageCommand}" />
+                <MenuItem Header="Save image _as IMD" Command="{Binding ConvertDiskToImdCommand}" />
+                <MenuItem Header="Save image as MF_I" Command="{Binding ConvertDiskToMfiCommand}" />
+                <MenuItem Header="Save image as _MFM" Command="{Binding ConvertDiskToMfmCommand}" />
+                <Separator />
+                <MenuItem Header="_Quit" Command="{Binding QuitCommand}" />
+            </MenuItem>
+            <MenuItem Header="_Tools">
+                <MenuItem Header="_BPM to Speed Converter" Name="BpmSpeedMenuItem" />
+                <!--<MenuItem Header="_Convert floppy image to IMG" Name="ConvertToImgMenuItem" />-->
+            </MenuItem>
+        </Menu>
+        <Grid RowDefinitions="auto, *, auto">
+            <StackPanel Grid.Row="0" Orientation="Horizontal"><Label Content="Current disk image: " /><Label Content="{Binding CurrentDiskImage}" /></StackPanel>
+            <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+                <ListBox SelectionMode="Single" ItemsSource="{Binding DiskDirectory}" SelectedIndex="{Binding DirectoryIndex}" />
+            </Border>
+            <Grid Grid.Row="2" ColumnDefinitions="*,*,*,*">
+                <Button Grid.Column="0" Command="{Binding ImportSampleCommand}" IsEnabled="{Binding IsEnabledControls}" Content="Import" />
+                <Button Grid.Column="1" Command="{Binding ExportSampleCommand}" IsEnabled="{Binding IsEnabledControls}" Content="Export" />
+                <Button Grid.Column="2" Command="{Binding DeleteSampleCommand}" IsEnabled="{Binding IsEnabledControls}" Content="Delete" />
+                <Button Grid.Column="3" Command="{Binding RenameSampleCommand}" IsEnabled="{Binding IsEnabledControls}" Content="Rename" />
+            </Grid>
+        </Grid>
+    </DockPanel>
+
+
+</Window>
