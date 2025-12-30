@@ -11,7 +11,9 @@ CMI Floppy Editor is an application designed to manage disk images for MAME CMI2
 ### Sourcing requirements
 
 bin2imd.exe, imdu.exe - a part of ImageDisk toolkit, recompiled for Win32 - https://github.com/ogdenpm/disktools
+
 floptool.exe - a part of MAME, if you didn't build it along with MAME, you can download a binary copy - https://www.mamedev.org/release.html
+
 cmios9.exe - https://sourceforge.net/projects/cmios9/
 
 ## Installation
